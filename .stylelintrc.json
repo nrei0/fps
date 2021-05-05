@@ -1,0 +1,67 @@
+{
+    "extends": "stylelint-config-recommended-scss",
+    "plugins": [
+        "stylelint-order",
+        "stylelint-scss",
+        "stylelint-z-index-value-constraint"
+    ],
+    "rules": {
+        "indentation": 2,
+        "max-nesting-depth": 3,
+        "order/properties-alphabetical-order": true,
+        "order/order": [
+            "custom-properties",
+            "dollar-variables",
+            "declarations",
+            "rules"
+        ],
+        "plugin/z-index-value-constraint": {
+            "min": 0,
+            "max": 10
+        },
+        "at-rule-empty-line-before": [
+            "always",
+            {
+                "ignore": [
+                    "after-comment"
+                ],
+                "except": [
+                    "after-same-name",
+                    "first-nested"
+                ]
+            }
+        ],
+        "custom-property-empty-line-before": [
+            "always",
+            {
+                "except": [
+                    "after-custom-property",
+                    "first-nested"
+                ]
+            }
+        ],
+        "declaration-empty-line-before": [
+            "always",
+            {
+                "except": [
+                    "after-declaration",
+                    "first-nested"
+                ]
+            }
+        ],
+        "declaration-block-semicolon-newline-after": "always",
+        "block-opening-brace-newline-after": "always",
+        "block-closing-brace-newline-before": "always",
+        "block-closing-brace-empty-line-before": "never",
+        "block-no-empty": true,
+        "comment-no-empty": true,
+        "rule-empty-line-before": [
+            "always",
+            {
+                "except": [
+                    "after-single-line-comment"
+                ]
+            }
+        ]
+    }
+}
