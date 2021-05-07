@@ -1,9 +1,10 @@
 import { NextPage } from 'next'
 import Head from 'next/head'
+import { Gallery } from '../components/gallery'
 import styles from '../styles/home.module.scss'
 
 const Home: NextPage = () => (
-  <div className={styles.container}>
+  <div>
     <Head>
       <title>Flick Photo Stream</title>
       <meta name="description" content="Flickr Photo Stream" />
@@ -11,7 +12,9 @@ const Home: NextPage = () => (
       <link rel="icon" href="/favicon.ico" />
     </Head>
 
-    <main className={styles.main}>Gallery WIP</main>
+    <main>
+      <Gallery />
+    </main>
 
     <footer className={styles.footer}>
       ©{new Date().getFullYear()}{' '}
