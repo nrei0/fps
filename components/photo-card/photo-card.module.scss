@@ -1,5 +1,81 @@
+.card {
+    min-width: 280px;
+    padding: 20px;
+    box-sizing: content-box;
+    background-color: #fff;
+    overflow: hidden;
+}
+
+
+//
+// Image.
+//
+
+.image-wrapper {
+    min-width: 280px;
+    height: 280px;
+    position: relative;
+    margin-bottom: 20px;
+}
+
 .image {
-    width: 200px;
-    height: 200px;
+    min-width: 280px;
+    height: 280px;
     background: url('/spinner.svg') center no-repeat;
+}
+
+//
+// Text.
+//
+
+.title {
+    display: block;
+    margin-top: 0.2em;
+    margin-bottom: 0;
+}
+
+.author {
+    display: block;
+    margin: 0.25em 0;
+}
+
+.author-link {
+    text-decoration: underline
+}
+
+.description {
+    display: block;
+    margin: 0.25em 0;
+    word-wrap: break-word
+}
+
+
+//
+// Tags.
+//
+.tags-title {
+    font-size: 0.95em;
+    margin-bottom: 1em;
+}
+
+.tags {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.tag {
+    display: inline-block;
+    line-height: 1.5em;
+    padding: 0 0.5em;
+    margin: 0.25em;
+    box-sizing: border-box;
+    background: #e5e5e5;
+    border-radius: 0.75em;
+    list-style: none;
+
+    a {
+        color: inherit;
+        text-decoration: inherit;
+    }
 }

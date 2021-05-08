@@ -1,0 +1,30 @@
+.gallery {
+    width: 100%;
+}
+
+.list {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
+    justify-content:space-between;
+}
+
+.item {
+    width: 30vw;
+    list-style: none;
+    display: flex;
+    flex-grow: 1;
+    justify-content: center;
+}
+
+.card {
+    width: 30vw;
+    padding-bottom: 5em;
+}
+
+@media only screen and (max-width: 768px) {
+    .item {
+        width: 280px;
+    }
+}

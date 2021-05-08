@@ -23,6 +23,7 @@
   ],
   "dependencies": {
     "axios": "^0.21.1",
+    "classnames": "^2.3.1",
     "cors": "^2.8.5",
     "next": "10.2.0",
     "next-connect": "^0.10.1",
