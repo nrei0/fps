@@ -1,7 +1,8 @@
 export interface FlickrPhotoItem {
   author: string
   title: string
-  author_id: string
+  authorLink: string
+  imageUrl: string
   description: string
   link: string
   tags: string
