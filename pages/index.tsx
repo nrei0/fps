@@ -54,7 +54,7 @@ const Home: NextPage = () => {
             </a>
           </div>
         </div>
-        <Gallery className={styles.gallery} items={data} isLoading={isLoading} />
+        <Gallery className={styles.gallery} tags={tags} items={data} isLoading={isLoading} />
       </main>
 
       <footer className={styles.footer}>

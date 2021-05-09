@@ -2,12 +2,17 @@ import Image from 'next/image'
 import cn from 'classnames'
 import styles from './photo-card.module.scss'
 
+interface Tag {
+  active: boolean
+  name: string
+}
+
 interface Props {
   className?: string
   title?: string
   link: string
   imageUrl: string
-  tags: string
+  tags: Tag[]
   description: string
   author: string
   authorLink: string
@@ -54,9 +59,9 @@ export const PhotoCard: React.FC<Props> = ({
       <div>
         <h5 className={styles['tags-title']}>Tags</h5>
         <ul className={styles.tags}>
-          {tags.split(' ').map((item) => (
-            <li className={styles.tag} key={item}>
-              <a href={`https://www.flickr.com/photos/tags/${item}`}>{item}</a>
+          {tags.map(({ name, active }) => (
+            <li className={cn(styles.tag, { [styles['active-tag']]: active })} key={name}>
+              <a href={`https://www.flickr.com/photos/tags/${name}`}>{name}</a>
             </li>
           ))}
         </ul>
