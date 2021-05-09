@@ -9,11 +9,13 @@ interface Props {
   tags?: string[]
   items: FlickrPhotoItem[]
   isLoading: boolean
+  onTagClick?: (tag: string, active: boolean) => void
 }
 
 const renderPhotoCards = (
   items: FlickrPhotoItem[],
-  activeTags: string[] = []
+  activeTags: string[] = [],
+  onTagClick: (tag: string, active: boolean) => void
 ): JSX.Element | null => {
   const numOfItems = items?.length
   const emptyCols = 3 - (numOfItems % 3)
@@ -39,6 +41,7 @@ const renderPhotoCards = (
               authorLink={authorLink}
               link={link}
               tags={tagList}
+              onTagClick={onTagClick}
             />
           </li>
         )
@@ -60,20 +63,29 @@ const renderLoader = (): JSX.Element => <Spinner alt="Gallery is loading" />
 const renderContent = (
   items: FlickrPhotoItem[],
   tags: string[],
-  isLoading: boolean
+  isLoading: boolean,
+  onTagClick: (tag: string, active: boolean) => void
 ): JSX.Element | string => {
   if (isLoading) {
     return renderLoader()
   } else if (items) {
-    return items.length ? renderPhotoCards(items, tags) : renderNoContentMessage()
+    return items.length ? renderPhotoCards(items, tags, onTagClick) : renderNoContentMessage()
   } else {
     // Error OR if content is invalid (null | undefined)
     return renderErrorMessage()
   }
 }
 
-export const Gallery: React.FC<Props> = ({ className, items, tags, isLoading }) => {
+export const Gallery: React.FC<Props> = ({
+  className,
+  items,
+  tags,
+  isLoading,
+  onTagClick = () => void 0,
+}) => {
   return (
-    <div className={cn(className, styles.gallery)}>{renderContent(items, tags, isLoading)}</div>
+    <div className={cn(className, styles.gallery)}>
+      {renderContent(items, tags, isLoading, onTagClick)}
+    </div>
   )
 }

@@ -19,6 +19,7 @@ exports[`Home page should match the snapshot 1`] = `
             onChange={[Function]}
             placeholder="Search by tags (for ex.: covid impfung gesundheit)"
             type="text"
+            value=""
           />
         </div>
       </div>

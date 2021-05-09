@@ -16,6 +16,7 @@ interface Props {
   description: string
   author: string
   authorLink: string
+  onTagClick?: (tag: string, active: boolean) => void
 }
 
 export const PhotoCard: React.FC<Props> = ({
@@ -27,6 +28,7 @@ export const PhotoCard: React.FC<Props> = ({
   author,
   authorLink,
   className,
+  onTagClick = () => void 0,
 }) => {
   return (
     <div className={cn(className, styles.card)} key={link}>
@@ -60,8 +62,19 @@ export const PhotoCard: React.FC<Props> = ({
         <h5 className={styles['tags-title']}>Tags</h5>
         <ul className={styles.tags}>
           {tags.map(({ name, active }) => (
-            <li className={cn(styles.tag, { [styles['active-tag']]: active })} key={name}>
-              <a href={`https://www.flickr.com/photos/tags/${name}`}>{name}</a>
+            <li
+              className={cn(styles.tag, { [styles['active-tag']]: active })}
+              key={name}
+              onClick={() => {
+                onTagClick(name, active)
+              }}
+              onKeyPress={() => {
+                onTagClick(name, active)
+              }}
+              tabIndex={-1}
+              role="presentation"
+            >
+              {name}
             </li>
           ))}
         </ul>
