@@ -1,23 +1,249 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Home page should match the snapshot 1`] = `
-<div
-  className="container"
->
+<div>
   <main
     className="main"
   >
-    Gallery WIP
+    <div
+      className="bar"
+    >
+      <div
+        className="search"
+      >
+        <div
+          className="search"
+        >
+          <input
+            className="input"
+            onChange={[Function]}
+            placeholder="Search by tags (for ex.: covid impfung gesundheit)"
+            type="text"
+          />
+        </div>
+      </div>
+      <div
+        className="repo"
+      >
+        <a
+          href="https://github.com/nrei0/fps"
+          title="Go to Github repo"
+        >
+          <div
+            style={
+              Object {
+                "boxSizing": "border-box",
+                "display": "inline-block",
+                "margin": 0,
+                "maxWidth": "100%",
+                "overflow": "hidden",
+                "position": "relative",
+              }
+            }
+          >
+            <div
+              style={
+                Object {
+                  "boxSizing": "border-box",
+                  "display": "block",
+                  "maxWidth": "100%",
+                }
+              }
+            >
+              <img
+                alt=""
+                aria-hidden={true}
+                role="presentation"
+                src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjQxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIvPg=="
+                style={
+                  Object {
+                    "border": "none",
+                    "display": "block",
+                    "margin": 0,
+                    "maxWidth": "100%",
+                    "padding": 0,
+                  }
+                }
+              />
+            </div>
+            <noscript>
+              <img
+                decoding="async"
+                src="/github.png"
+                srcSet="/_next/image?url=%2Fgithub.png&w=128&q=75 1x, /_next/image?url=%2Fgithub.png&w=256&q=75 2x"
+                style={
+                  Object {
+                    "border": "none",
+                    "bottom": 0,
+                    "boxSizing": "border-box",
+                    "display": "block",
+                    "height": 0,
+                    "left": 0,
+                    "margin": "auto",
+                    "maxHeight": "100%",
+                    "maxWidth": "100%",
+                    "minHeight": "100%",
+                    "minWidth": "100%",
+                    "objectFit": undefined,
+                    "objectPosition": undefined,
+                    "padding": 0,
+                    "position": "absolute",
+                    "right": 0,
+                    "top": 0,
+                    "width": 0,
+                  }
+                }
+              />
+            </noscript>
+            <img
+              decoding="async"
+              src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+              style={
+                Object {
+                  "border": "none",
+                  "bottom": 0,
+                  "boxSizing": "border-box",
+                  "display": "block",
+                  "height": 0,
+                  "left": 0,
+                  "margin": "auto",
+                  "maxHeight": "100%",
+                  "maxWidth": "100%",
+                  "minHeight": "100%",
+                  "minWidth": "100%",
+                  "objectFit": undefined,
+                  "objectPosition": undefined,
+                  "padding": 0,
+                  "position": "absolute",
+                  "right": 0,
+                  "top": 0,
+                  "width": 0,
+                }
+              }
+            />
+          </div>
+        </a>
+      </div>
+    </div>
+    <div
+      className="gallery gallery"
+    >
+      <div
+        style={
+          Object {
+            "boxSizing": "border-box",
+            "display": "inline-block",
+            "margin": 0,
+            "maxWidth": "100%",
+            "overflow": "hidden",
+            "position": "relative",
+          }
+        }
+      >
+        <div
+          style={
+            Object {
+              "boxSizing": "border-box",
+              "display": "block",
+              "maxWidth": "100%",
+            }
+          }
+        >
+          <img
+            alt=""
+            aria-hidden={true}
+            role="presentation"
+            src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmVyc2lvbj0iMS4xIi8+"
+            style={
+              Object {
+                "border": "none",
+                "display": "block",
+                "margin": 0,
+                "maxWidth": "100%",
+                "padding": 0,
+              }
+            }
+          />
+        </div>
+        <noscript>
+          <img
+            alt="Gallery is loading"
+            decoding="async"
+            src="/spinner.svg"
+            srcSet="/_next/image?url=%2Fspinner.svg&w=64&q=75 1x, /_next/image?url=%2Fspinner.svg&w=128&q=75 2x"
+            style={
+              Object {
+                "border": "none",
+                "bottom": 0,
+                "boxSizing": "border-box",
+                "display": "block",
+                "height": 0,
+                "left": 0,
+                "margin": "auto",
+                "maxHeight": "100%",
+                "maxWidth": "100%",
+                "minHeight": "100%",
+                "minWidth": "100%",
+                "objectFit": undefined,
+                "objectPosition": undefined,
+                "padding": 0,
+                "position": "absolute",
+                "right": 0,
+                "top": 0,
+                "width": 0,
+              }
+            }
+          />
+        </noscript>
+        <img
+          alt="Gallery is loading"
+          decoding="async"
+          src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+          style={
+            Object {
+              "border": "none",
+              "bottom": 0,
+              "boxSizing": "border-box",
+              "display": "block",
+              "height": 0,
+              "left": 0,
+              "margin": "auto",
+              "maxHeight": "100%",
+              "maxWidth": "100%",
+              "minHeight": "100%",
+              "minWidth": "100%",
+              "objectFit": undefined,
+              "objectPosition": undefined,
+              "padding": 0,
+              "position": "absolute",
+              "right": 0,
+              "top": 0,
+              "width": 0,
+            }
+          }
+        />
+      </div>
+    </div>
   </main>
   <footer
     className="footer"
   >
+    <p>
+      This project consumes
+       
+      <a
+        href="https://www.flickr.com/services/feeds/docs/photos_public/"
+        title="Flickr public API"
+      >
+        Flickr public API
+      </a>
+    </p>
     ©
     2021
      
     <a
-      href="https://github.com/nrei0"
-      title="Github - Andrei Tiurin"
+      href="http://nrei.name"
+      title="About dev"
     >
       Andrei Tiurin
     </a>
