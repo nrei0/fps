@@ -56,9 +56,15 @@ const middlewareHandler = nc<NextApiRequest, NextApiResponse>()
     } = req
 
     const { data } = await axios.get(
-      `https://api.flickr.com/services/feeds/photos_public.gne?format=json&nojsoncallback=1&tagmode=any&tags=safe${
-        tags && !Array.isArray(tags) ? ',' + decodeURIComponent(tags) : ''
+      /** WITHOUT safe mode if tags are specified. */
+      `https://api.flickr.com/services/feeds/photos_public.gne?format=json&nojsoncallback=1&tags=${
+        tags && !Array.isArray(tags) ? decodeURIComponent(tags) : 'safe'
       }`
+
+      /** Safe mode, but because of Public API limitation results will be very poor from what actually user looks for. */
+      // `https://api.flickr.com/services/feeds/photos_public.gne?format=json&nojsoncallback=1&tagmode=all&tags=safe${
+      //   tags && !Array.isArray(tags) ? ',' + decodeURIComponent(tags) : ''
+      // }`
     )
     res.json(dataMapper(data))
   })
