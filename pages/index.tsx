@@ -3,30 +3,51 @@ import { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
 import axios, { AxiosResponse } from 'axios'
-import { useQuery } from 'react-query'
+import { useQuery, useQueryClient } from 'react-query'
 import { FlickrApiResponse } from '../types/flickr'
 import { Gallery } from '../components/gallery'
 import { SearchBar } from '../components/search-bar'
 import styles from '../styles/home.module.scss'
+
+type CancelablePromise<T> = Promise<T> & { cancel: () => void }
 
 type AxiosFlickrApiResponse = AxiosResponse<FlickrApiResponse | undefined>
 
 const Home: NextPage = () => {
   const [tags, setTags] = useState([])
   const [searchText, setSearchText] = useState('')
+  const queryClient = useQueryClient()
 
   const { isLoading, data } = useQuery(
     ['public_photos', tags],
-    () =>
-      axios
+    () => {
+      const source = axios.CancelToken.source()
+
+      const promise = axios
         .get<unknown, AxiosFlickrApiResponse>(
-          `/api/flickr${tags.length ? '?tags=' + tags.join(',') : ''}`
+          `/api/flickr${tags.length ? '?tags=' + tags.join(',') : ''}`,
+          {
+            cancelToken: source.token,
+          }
         )
-        .then((res) => res.data),
+        .then((res) => res.data) as CancelablePromise<FlickrApiResponse>
+
+      // `.cancel` is not original method.
+      // Please take a look to docs of react-query.
+      // https://react-query.tanstack.com/guides/query-cancellation
+      promise.cancel = () => {
+        source.cancel()
+      }
+
+      return promise
+    },
     { refetchOnReconnect: false, refetchOnWindowFocus: false }
   )
 
   const updateTags = (value: string): void => {
+    // Cancel last outgoing request.
+    queryClient.cancelQueries('public_photos')
+
     setTags(
       value
         .split(' ')

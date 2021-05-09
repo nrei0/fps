@@ -4,6 +4,7 @@ import Home from './index'
 jest.mock('react-query', () => ({
   ...jest.requireActual('react-query'),
   useQuery: () => ({ isLoading: true, data: undefined }),
+  useQueryClient: () => ({ cancelQueries: () => void 0 }),
 }))
 
 describe('Home page', () => {
