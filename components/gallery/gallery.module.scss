@@ -1,5 +1,7 @@
 .gallery {
     width: 100%;
+    display: flex;
+    justify-content: center;
 }
 
 .list {
@@ -22,6 +24,7 @@
     width: 30vw;
     padding-bottom: 5em;
 }
+
 
 @media only screen and (max-width: 768px) {
     .item {

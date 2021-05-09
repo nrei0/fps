@@ -1,9 +1,14 @@
+.main {
+  margin: 1.5em 0;
+}
+
+.repo {
+  margin: 0 1em;
+  text-align: right;
+}
+
 .footer {
-  align-items: center;
-  display: flex;
-  height: 100px;
-  justify-content: center;
-  width: 100%;
+  margin: 1.5em 1em;
 }
 
 .footer a {
