@@ -6,23 +6,21 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  margin: 0 1em;
+  margin: 0.5em 20px;
 }
 
 .search {
-  flex: 1;
+  box-sizing: border-box;
+  flex: 0.33;
   margin-top: 5px;
+  width: 320px;
 }
 
 .repo {
   height: 40px;
-  margin-left: 33%;
   text-align: right;
 }
 
-.gallery {
-  margin-top: 1.5em;
-}
 
 .footer {
   margin: 1.5em 1em;
@@ -36,5 +34,9 @@
 
   .repo {
     display: none;
+  }
+
+  .search {
+    min-width: 100%;
   }
 }

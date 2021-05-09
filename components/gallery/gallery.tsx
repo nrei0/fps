@@ -17,8 +17,6 @@ const renderPhotoCards = (
   activeTags: string[] = [],
   onTagClick: (tag: string, active: boolean) => void
 ): JSX.Element | null => {
-  const numOfItems = items?.length
-  const emptyCols = 3 - (numOfItems % 3)
   const highlightedTags = activeTags.reduce((acc, tag) => {
     acc[tag] = true
     return acc
@@ -46,10 +44,6 @@ const renderPhotoCards = (
           </li>
         )
       })}
-      {/** @nrei workaround aligns cols at the end of gallery. */}
-      {new Array(emptyCols).fill(null).map((_, idx) => (
-        <li key={idx} className={styles.item}></li>
-      ))}
     </ul>
   ) : null
 }
