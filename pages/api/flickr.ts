@@ -56,7 +56,7 @@ const middlewareHandler = nc<NextApiRequest, NextApiResponse>()
     } = req
 
     const { data } = await axios.get(
-      `https://api.flickr.com/services/feeds/photos_public.gne?format=json&nojsoncallback=1&tags=safe${
+      `https://api.flickr.com/services/feeds/photos_public.gne?format=json&nojsoncallback=1&tagmode=any&tags=safe${
         tags && !Array.isArray(tags) ? ',' + decodeURIComponent(tags) : ''
       }`
     )
