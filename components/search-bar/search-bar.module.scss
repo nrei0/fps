@@ -1,0 +1,17 @@
+.search {
+    width: 100%;
+}
+
+.input {
+    width: 100%;
+    display: block !important;
+    box-sizing: border-box;
+    padding: 0 0.75em;
+    height: 30px;
+    outline: 0;
+    border: 1px solid #a5a5a5;
+
+    &:hover {
+        border: 1px solid #757575;
+    }
+}

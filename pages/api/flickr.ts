@@ -50,9 +50,15 @@ const dataMapper = (flickrData: FlickrServiceResponse): FlickrApiResponse => {
 // Middleware handler for `/api/flickr` endpoint.
 const middlewareHandler = nc<NextApiRequest, NextApiResponse>()
   .use(cors(/* could prevent specific origins from accessing route. */))
-  .get(async (_, res) => {
+  .get(async (req, res) => {
+    const {
+      query: { tags = '' },
+    } = req
+
     const { data } = await axios.get(
-      'https://api.flickr.com/services/feeds/photos_public.gne?format=json&nojsoncallback=1&tags=safe'
+      `https://api.flickr.com/services/feeds/photos_public.gne?format=json&nojsoncallback=1&tags=safe${
+        tags && !Array.isArray(tags) ? ',' + decodeURIComponent(tags) : ''
+      }`
     )
     res.json(dataMapper(data))
   })

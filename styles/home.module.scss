@@ -2,9 +2,26 @@
   margin: 1.5em 0;
 }
 
-.repo {
+.bar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
   margin: 0 1em;
+}
+
+.search {
+  flex: 1;
+  margin-top: 5px;
+}
+
+.repo {
+  height: 40px;
+  margin-left: 33%;
   text-align: right;
+}
+
+.gallery {
+  margin-top: 1.5em;
 }
 
 .footer {
@@ -13,4 +30,11 @@
 
 .footer a {
   padding-left: .25em;
+}
+
+@media only screen and (max-width: 768px) {
+
+  .repo {
+    display: none;
+  }
 }

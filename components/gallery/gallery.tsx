@@ -1,18 +1,16 @@
-import axios, { AxiosResponse } from 'axios'
 import cn from 'classnames'
-import { useQuery } from 'react-query'
 import { Spinner } from '../spinner'
-import { FlickrApiResponse } from '../../types/flickr'
+import { FlickrPhotoItem } from '../../types/flickr'
 import { PhotoCard } from '../photo-card'
 import styles from './gallery.module.scss'
 
 interface Props {
   className?: string
+  items: FlickrPhotoItem[]
+  isLoading: boolean
 }
 
-type AxiosFlickrApiResponse = AxiosResponse<FlickrApiResponse | undefined>
-
-const renderPhotoCards = (items: FlickrApiResponse): JSX.Element | null => {
+const renderPhotoCards = (items: FlickrPhotoItem[]): JSX.Element | null => {
   const numOfItems = items?.length
   const emptyCols = 3 - (numOfItems % 3)
   return items ? (
@@ -45,7 +43,7 @@ const renderNoContentMessage = (): string => 'There are no content found'
 
 const renderLoader = (): JSX.Element => <Spinner alt="Gallery is loading" />
 
-const renderContent = (items: FlickrApiResponse, isLoading: boolean): JSX.Element | string => {
+const renderContent = (items: FlickrPhotoItem[], isLoading: boolean): JSX.Element | string => {
   if (isLoading) {
     return renderLoader()
   } else if (items) {
@@ -56,11 +54,6 @@ const renderContent = (items: FlickrApiResponse, isLoading: boolean): JSX.Elemen
   }
 }
 
-export const Gallery: React.FC<Props> = ({ className }) => {
-  const { isLoading, data } = useQuery(
-    'public_photos',
-    () => axios.get<unknown, AxiosFlickrApiResponse>('/api/flickr').then((res) => res.data),
-    { refetchOnReconnect: false, refetchOnWindowFocus: false }
-  )
-  return <div className={cn(className, styles.gallery)}>{renderContent(data, isLoading)}</div>
+export const Gallery: React.FC<Props> = ({ className, items, isLoading }) => {
+  return <div className={cn(className, styles.gallery)}>{renderContent(items, isLoading)}</div>
 }
